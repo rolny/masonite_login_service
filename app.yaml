@@ -1,0 +1,13 @@
+runtime: python310
+
+instance_class: F1
+
+handlers:
+- url: /images
+  static_dir: storage/static/images
+  
+- url: /.*
+  script:auto
+  redirect_http_response_dode: 301
+
+entrypoint: gunicorn wsgi:application
